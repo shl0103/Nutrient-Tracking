@@ -7,7 +7,7 @@ url = 'http://api.nal.usda.gov/ndb/reports/'
 #params = urllib.urlencode(data)
 #print params
 
-url= url + "?" + "ndbno=01009" + "&" + "type=b" + "&" + "format=json" +"&" +"api_key=CaYB3CPpVop4oXocZ79CRO5LqKw9YoMs4OkRwUmN" 
+url= url + "?" + "ndbno=01009" + "&" + "type=b" + "&" + "format=json" +"&" +"api_key=" 
 print url
 response = urllib.urlopen(url)
 data = json.load(response)
