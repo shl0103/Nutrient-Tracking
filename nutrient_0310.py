@@ -2,17 +2,6 @@ import urllib, json, csv
 import xml.etree.ElementTree as ET
 
 url = 'http://api.nal.usda.gov/ndb/reports/?'
-
-#data =  {'api_key': 'CaYB3CPpVop4oXocZ79CRO5LqKw9YoMs4OkRwUmN', 'ndbno': '01009', 'type':'b', 'format': 'xml'}
-#params = urllib.urlencode(data)
-#print params
-
-#url_full= url + "?" + "ndbno=01009" + "&" + "type=b" + "&" + "format=json" +"&" +"api_key=CaYB3CPpVop4oXocZ79CRO5LqKw9YoMs4OkRwUmN" 
-#print url_full
-#response = urllib.urlopen(url_full)
-#data = json.load(response)
-#print data
-
 #def get_nutrition_data(ndbno, type, format, api_key):
 json_data = []
 data = None
@@ -68,9 +57,6 @@ class Nutrition:
         recursion_xml(root, nutrient_group, nutrient)
         f_dump.close()
         
-
-
-
         
 nutrition = Nutrition(url)
 data  = nutrition.get_nutrition('01009', 'b', 'xml', 'CaYB3CPpVop4oXocZ79CRO5LqKw9YoMs4OkRwUmN')
@@ -87,26 +73,4 @@ nutrition.get_nutrient(file1, 'Vitamins', 'Vitamin A, IU')
 
 '''print root.tag
 print root.attrib
-#for child in root:
-    #print(child.tag, child.attrib)
-def recursion_xml(root):
-    #root = tree.getroot()
-    print root.tag
-    print root.attrib
-    for child in root:
-        recursion_xml(child)
 
-recursion_xml(root)
-        
-
-#f = csv.writer(open('file.csv', 'wb+'))
-# use encode to convert non-ASCII characters
-#for item in data:
-#    values = [ x.encode('utf8') for x in item['fields'].values() ]
- #   f.writerow([item['pk'], item['model']] + values)
-#for item in data:
-    #for keys,values in item.items():
-#        print keys
-#        print values
-#
-'''
